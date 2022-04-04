@@ -54,5 +54,4 @@ int main() {
     std::cout << "\n\t* Validated TVs: " << TVs.size();
     std::cout << "\n\t* Non validated TVs: " << total_TVs - TVs.size();
     return 0;
-
 }
