@@ -32,6 +32,7 @@ int main() {
     }
 
 
+
     size_t total_TVs = TVs.size();
 
     for (const auto &tv: TVs) {
