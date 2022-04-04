@@ -2,8 +2,7 @@
 // Created by MrMam on 03.04.2022.
 //
 
-#ifndef DAN_TV_H
-#define DAN_TV_H
+#pragma once
 
 #include <string>
 #include <iostream>
@@ -20,6 +19,8 @@ BETTER_ENUM(producer_t, uint8_t,
 // model, producer, resolution, price
 class TV {
 public:
+    template <int _resolutions>
+    friend class TV_factory;
     struct resolution_t {
         int x;
         int y;
@@ -29,7 +30,7 @@ public:
        _resolution(resolution), _brightness(brightness), _price(price){};
 
 
-    bool test() const;
+    bool test(int start = 0, int end = 15000) const;
     void print_info() const;
     resolution_t get_resolution() const;
     std::string get_model() const;
@@ -45,5 +46,3 @@ private:
     float _brightness;
     float _price;
 };
-
-#endif // DAN_TV_H

@@ -3,6 +3,7 @@
 //
 
 #include "TV.h"
+#include <random>
 
 TV::resolution_t TV::get_resolution() const {
     return _resolution;
@@ -25,17 +26,11 @@ void TV::print_info() const{
     std::cout << "Price: " << _price << "\n";
 }
 
-//bool TV::test() const {
-//    int random_value = (rand() % 10000);
-//    if (random_value > (_resolution.x + _resolution.y + int(_brightness))) {
-//        return false;
-//    }  else {
-//        return true;
-//    }
-//}
-bool TV::test() const {
-
-    if (_resolution.x < 2000) {
+bool TV::test(int start, int end) const {
+    static std::random_device dev;
+    static std::mt19937 rng(dev());
+    static std::uniform_int_distribution<std::mt19937::result_type> dist(start, end);
+    if (dist(rng) > (_resolution.x + _resolution.y + int(_brightness))) {
         return false;
     }  else {
         return true;
