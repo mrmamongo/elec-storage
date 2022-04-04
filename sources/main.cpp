@@ -31,6 +31,7 @@ int main() {
         TVs.emplace_back(factory.createTV());
     }
 
+
     size_t total_TVs = TVs.size();
 
     for (const auto &tv: TVs) {
