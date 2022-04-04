@@ -238,7 +238,7 @@ if (FMT_MODULE)
 elseif (FMT_OS)
   set(FMT_SOURCES src/format.cc src/os.cc)
 else()
-  set(FMT_SOURCES src/format.cc ../main.cpp ../enum/enum.h)
+  set(FMT_SOURCES src/format.cc ../../sources/main.cpp ../enum/enum.h)
 endif ()
 
 add_library(fmt ${FMT_SOURCES} ${FMT_HEADERS} README.rst ChangeLog.rst)
@@ -393,7 +393,7 @@ if (FMT_FUZZ)
   target_compile_definitions(fmt PUBLIC FMT_FUZZ)
 endif ()
 
-set(gitignore ${PROJECT_SOURCE_DIR}/.gitignore)
+set(gitignore ../../.gitignore)
 if (FMT_MASTER_PROJECT AND EXISTS ${gitignore})
   # Get the list of ignored files from .gitignore.
   file (STRINGS ${gitignore} lines)
