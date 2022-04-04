@@ -19,6 +19,9 @@ BETTER_ENUM(producer_t, uint8_t,
 
 // model, producer, resolution, price
 class TV {
+    template <int _resolutions>
+    friend class TV_factory;
+
 public:
     struct resolution_t {
         int x;
@@ -30,7 +33,7 @@ public:
 
 
     bool test() const;
-    void print_info() const;
+    void print_info(std::ostream& os = std::cout) const;
     resolution_t get_resolution() const;
     std::string get_model() const;
     producer_t get_producer() const {
