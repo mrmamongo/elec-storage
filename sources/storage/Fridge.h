@@ -21,6 +21,7 @@ public:
 
     [[nodiscard]] bool test(int start, int end) const override;
     void print_info(std::ostream& os) const override;
+    el_type get_type() const override { return el_type::fridge; }
 private:
     float _volume;
     float _power;

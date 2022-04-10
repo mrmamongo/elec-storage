@@ -25,6 +25,7 @@ public:
 
     [[nodiscard]] bool test(int start = 0, int end = 15000) const override;
     void print_info(std::ostream& os) const override;
+    el_type get_type() const override { return el_type::tv; }
 private:
     resolution_t _resolution;
     float _brightness;

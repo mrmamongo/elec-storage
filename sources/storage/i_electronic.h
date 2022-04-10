@@ -16,6 +16,11 @@ BETTER_ENUM(producer_t, uint8_t,
         LG = 4
 )
 
+BETTER_ENUM(el_type, uint8_t,
+            fridge = 1,
+            tv = 2
+            )
+
 class i_electronics {
 friend class i_elec_factory;
 public:
@@ -25,6 +30,7 @@ public:
 
     [[nodiscard]] virtual bool test(int start, int end) const = 0;
     virtual void print_info(std::ostream& os) const = 0;
+    virtual el_type get_type() const = 0;
 protected:
     std::string _model;
     producer_t _producer;

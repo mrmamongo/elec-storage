@@ -5,11 +5,11 @@
 
 /*
  * Сгенерировать вектор телевизоров
- * модель: первые две буквы - из производителя капсом, следующие четыре цифры - случайные
- * производитель: случайный
- * разрешение: случайное из набора разрешений
- * яркость: произведение суммы разрешения на номер производителя
- * цена: сумма яркости, разрешения, умноженная на номер производителя
+ * модель - первые две буквы - из производителя капсом, следующие четыре цифры - случайные
+ * производитель - случайный
+ * разрешение - случайное из набора разрешений
+ * яркость - произведение суммы разрешения на номер производителя
+ * цена - сумма яркости, разрешения, умноженная на номер производителя
  *
  * все образцы протестировать и удалить образцы, не прошедшие тест
  */
@@ -40,16 +40,24 @@ int main() {
         }
     }
 
+    int fridges = 0, tvs = 0;
+
     std::cout << "\nitems:\n";
-    for (const auto &tv: warehouse) {
-        tv->print_info(std::cout);
+    for (const auto &item: warehouse) {
+        item->print_info(std::cout);
+        if (item->get_type().operator el_type::_enumerated() == el_type::tv) {
+            tvs++;
+        } else {
+            fridges++;
+        }
     }
 
     std::cout << "\n\tIn total items: " << total_warehouse;
     std::cout << "\n\tValidated items: " << warehouse.size();
     std::cout << "\n\tNon validated items: " << total_warehouse - warehouse.size();
 
+    std::cout << "\n\n\tValidated TVs: " << tvs;
+    std::cout << "\n\tValidated Fridges: " << fridges;
 
     return 0;
-
 }
